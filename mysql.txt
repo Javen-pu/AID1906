@@ -1,0 +1,70 @@
+
+数据库练习：
+
+1. 创建数据库 grade
+   create database grade charset=utf8;
+   use grade;
+2. 数据库中创建表 student
+   create table student (id INT PRIMARY KEY
+   AUTO_INCREMENT,name VARCHAR(32) NOT NULL,
+    age INT UNSIGNED NOT NULL,hobby
+    SET('football','computer',running','basketball'),
+    score FLOAT DEFAULT 0.0, comment TEXT);
+3. 表字段如下
+
+   id name age hobby score comment
+
+4. 插入若干数据
+   age: 4--16
+   hobby: football computer running basketball
+   insert into student values (1,'Javen',15,
+   'basketball,running',98.5,'学习认真，表现良好');
+   ....
+
+5. 查找
+   select * from student
+   × 查找所有年龄不到10岁或者大于14岁的同学
+     select * from student where not between 10 and 14;
+   × 查找兴趣爱好中包含computer的同学
+     select * from student where find_in_set('computer',hobby);
+   × 查找年龄大于等于15 又喜欢足球的同学
+     select * from student where age > 15 and find_in_set('football',hobby);
+   × 查找不及格兴趣爱好又不为空的同学
+   select * from student where score<60 and hobby is not null;
+   × 查找成绩大于90分的所有同学，只看姓名和成绩
+     select name,score from student where score > 90;
+
+作业： 1.熟练mysql基本语句：创建数据库，创建数据表
+      插入，查询，修改，删除，表结构修改
+      2.订单信息，订单历史记录
+        创建一个数据表，存放外卖的订单信息
+
+练习：将单词本存入数据库
+
+1. 创建数据库 dict (utf8)
+2. 创建数据表 words 将单词和单词解释分别存入不同的字段
+3. 将单词存入words 单词表 超过 19500 即可
+
+
+文件存储
+   1. 存储文件路径 "/home/tarena/xxxx"
+
+   2. 将文件以二进制存储在数据库
+
+
+练习：
+
+  1. 编写一个程序，模拟注册和登录的过程
+
+      * 创建一个user表 包含  用户名和密码字段
+      * 应用程序中模拟注册和登录功能
+
+        注册则输入用户名密码将用户名密码存入到数据库（用户名不能重复）
+
+        登录则进行数据库比对，如果有该用户则打印登录成功
+        否则让重新输入
+
+
+作业： 整理数据库内容
+      完成练习，自己写完，整理笔记。
+
